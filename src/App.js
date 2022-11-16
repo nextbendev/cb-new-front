@@ -1,7 +1,10 @@
 import logo from './logo.svg';
+import React, {useEffect} from 'react';
+import Web3 from 'web3';
 import './App.css';
 
 function App() {
+  const provderUrl =
   return (
     <div className="App">
       <header className="App-header">
