@@ -1,27 +1,34 @@
-import logo from './logo.svg';
-import React, {useEffect} from 'react';
-import Web3 from 'web3';
+import bg from './bg.png';
+import React, {useEffect, useState} from 'react';
+import { init, getBalance } from './components/web3/web3Client';
 import './App.css';
 
 function App() {
-  const provderUrl =
+  const [balance, setBalance] = useState(0);
+  const fetchBalance = () => [
+    getBalance().then(balance => {
+      setBalance(balance);
+    }).catch(err => {
+      console.log(err);
+    })
+
+  ]
+  
+  useEffect(() => {
+   init();
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <body class="Main" >
+      <header class="header">Header</header>
+      <div class="body">
+        <main class="content">
+       
+        </main>
+        <nav class="nav">Nav</nav>
+        <aside class="ads">Ads</aside>
+      </div>
+      <footer class="footer">Footer</footer>
+    </body>
   );
 }
 
